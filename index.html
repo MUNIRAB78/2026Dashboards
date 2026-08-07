@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Harris County Election Dashboards</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap');
+
+  :root{
+    --navy-deep:#101a2e;
+    --navy:#16233d;
+    --navy-light:#22314f;
+    --gold:#c9a227;
+    --gold-soft:#e4c869;
+    --paper:#f3efe4;
+    --paper-dim:#c7c2b3;
+    --rule:#3a4763;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--navy-deep);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(201,162,39,0.08), transparent 45%),
+      radial-gradient(circle at 90% 20%, rgba(201,162,39,0.05), transparent 40%);
+    color:var(--paper);
+    font-family:'Inter',system-ui,sans-serif;
+    min-height:100vh;
+  }
+
+  header{
+    padding:64px 24px 40px;
+    text-align:center;
+    border-bottom:1px solid var(--rule);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+    margin-bottom:18px;
+  }
+  h1{
+    font-family:'Source Serif 4',serif;
+    font-weight:700;
+    font-size:clamp(32px,5vw,52px);
+    margin:0 0 14px;
+    letter-spacing:-0.01em;
+  }
+  header p{
+    color:var(--paper-dim);
+    font-size:16px;
+    max-width:560px;
+    margin:0 auto;
+    line-height:1.6;
+  }
+
+  main{
+    max-width:1080px;
+    margin:0 auto;
+    padding:56px 24px 100px;
+  }
+
+  .section{margin-bottom:56px;}
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:22px;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:12px;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono',monospace;
+    color:var(--gold);
+    font-size:13px;
+  }
+  .section-head h2{
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    font-size:22px;
+    margin:0;
+    color:var(--paper);
+  }
+  .section-head span.count{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--paper-dim);
+    margin-left:auto;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+    gap:16px;
+  }
+
+  .card{
+    background:var(--navy);
+    border:1px solid var(--rule);
+    border-radius:6px;
+    padding:22px 20px;
+    text-decoration:none;
+    color:var(--paper);
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    transition:border-color .15s ease, transform .15s ease, background .15s ease;
+    position:relative;
+    overflow:hidden;
+  }
+  .card:before{
+    content:"";
+    position:absolute;
+    left:0;top:0;bottom:0;
+    width:3px;
+    background:var(--gold);
+    transform:scaleY(0);
+    transform-origin:top;
+    transition:transform .2s ease;
+  }
+  .card:hover{
+    border-color:var(--gold);
+    background:var(--navy-light);
+    transform:translateY(-2px);
+  }
+  .card:hover:before{transform:scaleY(1);}
+  .card:focus-visible{
+    outline:2px solid var(--gold-soft);
+    outline-offset:2px;
+  }
+
+  .card-title{
+    font-family:'Source Serif 4',serif;
+    font-weight:600;
+    font-size:17px;
+    line-height:1.35;
+  }
+  .card-desc{
+    font-size:13px;
+    color:var(--paper-dim);
+    line-height:1.5;
+  }
+  .card-arrow{
+    margin-top:auto;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--gold-soft);
+    letter-spacing:0.05em;
+    display:flex;
+    align-items:center;
+    gap:6px;
+  }
+
+  footer{
+    text-align:center;
+    padding:32px 24px 48px;
+    color:var(--paper-dim);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.04em;
+    border-top:1px solid var(--rule);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .card{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Precinct-Level Data · Harris County, Texas</div>
+  <h1>Election Dashboards</h1>
+  <p>Interactive precinct maps and vote comparisons across Harris County races. Select a dashboard below to open it.</p>
+</header>
+
+<main>
+
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2>County Judge Race — Historical Comparisons</h2>
+      <span class="count">6 dashboards</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="County_Judge_VS_Governor_2022_General_Election.html">
+        <div class="card-title">County Judge vs. Governor — 2022</div>
+        <div class="card-desc">Precinct-by-precinct differential between the County Judge and Governor races in the 2022 general election.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="CountyJudge_vs_Senate_2018_General_Election.html">
+        <div class="card-title">County Judge vs. U.S. Senate — 2018</div>
+        <div class="card-desc">Precinct comparison between County Judge and U.S. Senate results in the 2018 general election.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="M_Bangee_Harris_County_Judge_election_March_2026.html">
+        <div class="card-title">Harris County Judge Race — 2026</div>
+        <div class="card-desc">Full precinct dashboard for the 2026 Harris County Judge election.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="M_Bangee_Precincts_Lawton_and_Plummer_March_2026.html">
+        <div class="card-title">Audrie Lawton vs. Letitia Plummer — March 2026</div>
+        <div class="card-desc">Precinct map comparing where Lawton won and Plummer lost across Harris County.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="Plummer_Vs_Sanchez_Dashboard.html">
+        <div class="card-title">Plummer vs. Sanchez — Runoff</div>
+        <div class="card-desc">Harris County Judge runoff dashboard comparing Plummer and Sanchez precinct results.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="Runoff_Election_Plummer_vs_Parker.html">
+        <div class="card-title">Democratic Runoff — Plummer vs. Parker</div>
+        <div class="card-desc">Precinct-level results from the Democratic runoff between Plummer and Parker.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2>District Comparisons</h2>
+      <span class="count">4 dashboards</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="HC_TX_9_and_Plummer.html">
+        <div class="card-title">TX-9 and Plummer</div>
+        <div class="card-desc">Harris County dashboard overlaying TX Congressional District 9 with the Plummer race.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="M_Bangee_Harris_County_TX_18_Election_Dashboard_.html">
+        <div class="card-title">TX-18 — Common Precincts</div>
+        <div class="card-desc">Precincts shared between Harris County races and TX Congressional District 18.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="TX_18_and_Plummer_with_Demographics.html">
+        <div class="card-title">TX-18 — Common Precincts with Demographics</div>
+        <div class="card-desc">Same TX-18 precinct overlap, layered with demographic data.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="M_Bangee_Harris_County_vs_District_C_Sp_election.html">
+        <div class="card-title">Harris County vs. District C — Special Election</div>
+        <div class="card-desc">Comparison dashboard between Harris County results and the District C special election.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2>Outreach &amp; Priority Precincts</h2>
+      <span class="count">2 dashboards</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="Muslim_Outreach_Dashboard.html">
+        <div class="card-title">Muslim Voter Outreach Impact</div>
+        <div class="card-desc">Tracks outreach impact among Muslim voters for the Plummer County Judge campaign.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="Priority_Precincts_Dashoard.html">
+        <div class="card-title">Priority Precinct Dashboards</div>
+        <div class="card-desc">Ranked priority precincts for the Plummer County Judge campaign.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2>Heat Maps</h2>
+      <span class="count">2 dashboards</span>
+    </div>
+    <div class="grid">
+      <a class="card" href="Harris_County_Heatmap.html">
+        <div class="card-title">Harris County Precinct Heat Map — Plummer</div>
+        <div class="card-desc">County-wide precinct heat map showing Plummer's vote-share intensity.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+      <a class="card" href="precinct_heatmap.html">
+        <div class="card-title">Precinct Heat Map — Plummer vs. Parker</div>
+        <div class="card-desc">Comparative heat map of precinct-level results between Plummer and Parker.</div>
+        <div class="card-arrow">OPEN DASHBOARD →</div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  HARRIS COUNTY, TEXAS · PRECINCT DATA DASHBOARD INDEX
+</footer>
+
+</body>
+</html>
