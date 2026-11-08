@@ -198,7 +198,7 @@ function getStyle(feature){
   return{fillColor:color,fillOpacity:opacity,color:"rgba(255,255,255,0.15)",weight:0.5,opacity:0.8};
 }
 const map=L.map("map",{zoomControl:true}).setView([29.77,-95.37],10);
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",{attribution:"&copy; OpenStreetMap &copy; CARTO",maxZoom:19}).addTo(map);
+L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png?key=cb1_54uw_1_148cfd428c93b9cf8ac1d7a6",{attribution:"&copy; OpenStreetMap &copy; CARTO",maxZoom:19}).addTo(map);
 const tip=document.getElementById("tip");
 function showTip(p){
   if(!p.winner||p.winner==="NO_DATA"){

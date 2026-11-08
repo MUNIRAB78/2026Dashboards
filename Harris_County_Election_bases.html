@@ -235,7 +235,7 @@ LABEL_DATA.forEach(([pct, lat, lon, cat, area]) => {
 
 function initMap() {
   map = L.map("map", { center: [29.85, -95.4], zoom: 10 });
-  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", {
+  L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png?key=cb1_54uw_1_148cfd428c93b9cf8ac1d7a6", {
     attribution: "© OpenStreetMap © CARTO",
     subdomains: "abcd", maxZoom: 19
   }).addTo(map);
